@@ -22,7 +22,7 @@ angular.module('wechat.messageDetailController', [])
                 $scope.localId = localId;
                 $scope.msg = localId;
                 var intervalNum = Math.round((endDate.getTime() - beginDate.getTime()) / 1000);
-                $scope.sendVoice(localId, intervalNum);
+                sendVoice(localId, intervalNum);
               }
             });
           });
@@ -206,7 +206,7 @@ angular.module('wechat.messageDetailController', [])
           });
         };
 
-        $scope.sendVoice = function (mediaId, intervalNum) {
+        sendVoice = function (mediaId, intervalNum) {
           var data = {};
           data.content = ' ' + intervalNum + '秒';
           data.isFromeMe = true;
@@ -223,7 +223,7 @@ angular.module('wechat.messageDetailController', [])
         /* TEXT */
         $scope.sendText = function () {
           var data = {};
-          data.content = $scope.msg + new Date();
+          data.content = $scope.msg;
           data.isFromeMe = true;
           data.time = new Date();
           data.type = 'TEXT';

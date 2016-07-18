@@ -44,6 +44,17 @@ public class wxServlet extends HttpServlet {
 	sendMsg(type, openid, content);
   }
 
+  public void sendMedia(String type, String fileName) {
+	String url = "https://api.weixin.qq.com/cgi-bin/media/upload?access_token=ACCESS_TOKEN&type=TYPE";
+	try {
+	  url.replace("ACCESS_TOKEN", wxService.getAccessToken());
+	  url.replace("TYPE", type);
+	  url.replace("media", fileName);
+	} catch (WxErrorException e) {
+	  e.printStackTrace();
+	}
+  }
+
   public void sendMsg(String type, String openid, String content) throws UnsupportedEncodingException {
 	WxMpCustomMessage message = null;
 	content = new String(content.getBytes("GBK"), "UTF-8");
