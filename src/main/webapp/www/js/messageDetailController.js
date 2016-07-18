@@ -227,7 +227,7 @@ angular.module('wechat.messageDetailController', [])
           data.isFromeMe = true;
           data.time = new Date();
           data.type = 'TEXT';
-          $scope.messageDetils.unshift(data);
+          $scope.messageDetils.push(data);
           messageService.sendText($scope.message.openid, $scope.msg);
           $scope.msg = '';
           viewScroll.scrollBottom();

@@ -9,13 +9,14 @@ import me.chanjar.weixin.mp.bean.WxMpCustomMessage;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
-@javax.servlet.annotation.WebServlet(name = "/wxServlet", urlPatterns = "/wxServlet", loadOnStartup = 1,
+@WebServlet(name = "/wxServlet", urlPatterns = "/wxServlet", loadOnStartup = 1,
 		initParams = {@WebInitParam(name = "appid", value = "wx791d897f45713b38"),
 				@WebInitParam(name = "secret", value = "ec1be18ba7c332f5ff260c08f3c93e2d"),
 				@WebInitParam(name = "token", value = "12345678901234567890123456789012")})
