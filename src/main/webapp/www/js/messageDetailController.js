@@ -223,13 +223,11 @@ angular.module('wechat.messageDetailController', [])
         /* TEXT */
         $scope.sendText = function () {
           var data = {};
-          data.content = $scope.msg;
+          data.content = $scope.msg + new Date();
           data.isFromeMe = true;
           data.time = new Date();
           data.type = 'TEXT';
-          //console.log(data);
-          console.log($scope.messageDetils.length);
-          $scope.messageDetils.push(data);
+          $scope.messageDetils.unshift(data);
           messageService.sendText($scope.message.openid, $scope.msg);
           $scope.msg = '';
           viewScroll.scrollBottom();
@@ -237,7 +235,6 @@ angular.module('wechat.messageDetailController', [])
 
         $scope.toggleInput = function (isInputText) {
           $scope.isInputText = !isInputText;
-          console.log($scope.isInputText);
         };
         /* TEXT */
 
