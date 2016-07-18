@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$APPLICATION_HOME_DIR$/workspace/git/weixin-java-tools/weixin-java-common/weixin-java-common.iml" filepath="$APPLICATION_HOME_DIR$/workspace/git/weixin-java-tools/weixin-java-common/weixin-java-common.iml" />
+      <module fileurl="file://$APPLICATION_HOME_DIR$/workspace/git/weixin-java-tools/weixin-java-cp/weixin-java-cp.iml" filepath="$APPLICATION_HOME_DIR$/workspace/git/weixin-java-tools/weixin-java-cp/weixin-java-cp.iml" />
+      <module fileurl="file://$APPLICATION_HOME_DIR$/workspace/git/weixin-java-tools/weixin-java-mp/weixin-java-mp.iml" filepath="$APPLICATION_HOME_DIR$/workspace/git/weixin-java-tools/weixin-java-mp/weixin-java-mp.iml" />
+      <module fileurl="file://$APPLICATION_HOME_DIR$/workspace/git/weixin-java-tools/weixin-java-parent.iml" filepath="$APPLICATION_HOME_DIR$/workspace/git/weixin-java-tools/weixin-java-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/wx-chat.iml" filepath="$PROJECT_DIR$/wx-chat.iml" />
     </modules>
   </component>
