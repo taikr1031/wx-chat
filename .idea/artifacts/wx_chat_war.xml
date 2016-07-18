@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="wx-chat:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="wx-chat.war">
+      <element id="artifact" artifact-name="wx-chat:war exploded" />
+    </root>
+  </artifact>
+</component>
