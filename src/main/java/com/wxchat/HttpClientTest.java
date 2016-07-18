@@ -17,13 +17,12 @@ public class HttpClientTest {
 	  HttpEntity entity = response.getEntity();
 	  if (entity != null) {
 		String result = EntityUtils.toString(entity);
-		System.out.println("===: " + result);
 		return result;
 	  }
 	} catch (Exception e) {
 	  e.printStackTrace();
 	}
-	new IllegalArgumentException("url传入参数异常");
+	new IllegalArgumentException("url传入参数异常!");
 	return null;
   }
 }
