@@ -29,27 +29,29 @@ public class MyMessageInbound extends MessageInbound {
 	HashMap<String, String> messageMap = MessageUtil.getMessage(msg);    //处理消息类
 	//上线用户集合类map
 	HashMap<String, MessageInbound> userMsgMap = InitServlet.getSocketList();
-	String fromName = messageMap.get("fromName");    //消息来自人 的userId
-	String toName = messageMap.get("toName");         //消息发往人的 userId
-	//获取该用户
-	MessageInbound messageInbound = userMsgMap.get(toName);    //在仓库中取出发往人的MessageInbound
-
-	if (messageInbound != null) {     //如果发往人 存在进行操作
-	  WsOutbound outbound = messageInbound.getWsOutbound();
-	  String content = messageMap.get("content");  //获取消息内容
-	  String msgContentString = fromName + "     " + content;   //构造发送的消息
-	  //发出去内容
-	  CharBuffer toMsg = CharBuffer.wrap(msgContentString.toCharArray());
-	  outbound.writeTextMessage(toMsg);  //
-	  outbound.flush();
-	}
-	Set<Map.Entry<String, MessageInbound>> entries = InitServlet.getSocketList().entrySet();
-	for (Map.Entry<String, MessageInbound> entry : entries) {
-	  CharBuffer buffer = CharBuffer.wrap(msg);
-	  WsOutbound outbound = entry.getValue().getWsOutbound();
-	  outbound.writeTextMessage(buffer);
-	  outbound.flush();
-	}
+//	if (userMsgMap.size() == 1) {
+	  String fromName = messageMap.get("fromName");    //消息来自人 的userId
+	  String toName = messageMap.get("toName");         //消息发往人的 userId
+	  //获取该用户
+	  MessageInbound messageInbound = userMsgMap.get(toName);    //在仓库中取出发往人的MessageInbound
+	  if (messageInbound != null) {     //如果发往人 存在进行操作
+		WsOutbound outbound = messageInbound.getWsOutbound();
+		String content = messageMap.get("content");  //获取消息内容
+		String msgContentString = fromName + "     " + content;   //构造发送的消息
+		//发出去内容
+		CharBuffer toMsg = CharBuffer.wrap(msgContentString.toCharArray());
+		outbound.writeTextMessage(toMsg);  //
+		outbound.flush();
+	  }
+//	} else {
+//	  Set<Map.Entry<String, MessageInbound>> entries = InitServlet.getSocketList().entrySet();
+//	  for (Map.Entry<String, MessageInbound> entry : entries) {
+//		CharBuffer buffer = CharBuffer.wrap(msg);
+//		WsOutbound outbound = entry.getValue().getWsOutbound();
+//		outbound.writeTextMessage(buffer);
+//		outbound.flush();
+//	  }
+//	}
   }
 
   @Override
